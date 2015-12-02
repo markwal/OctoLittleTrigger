@@ -15,7 +15,7 @@ class LittletriggerCallback(octoprint.printer.PrinterCallback):
 		if self._settings.get(["comm_message"]) in data:
 			event_to_trigger = self._settings.get(["event_to_trigger"])
 			self._logger.warn("found message, firing event %s" % event_to_trigger)
-			self._event_bus.fire(event_to_trigger)
+			self._event_bus.fire(event_to_trigger, data)
 
 
 class LittletriggerPlugin(octoprint.plugin.StartupPlugin,
